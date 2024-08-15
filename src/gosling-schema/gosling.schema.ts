@@ -154,7 +154,7 @@ export interface CommonViewDef {
 }
 
 /* ----------------------------- TRACK ----------------------------- */
-export type Track = SingleTrack | OverlaidTrack | TemplateTrack | DummyTrack;
+export type Track = SingleTrack | OverlaidTrack | TemplateTrack | DummyTrack | ChromospaceTrack;
 
 export interface CommonTrackDef extends CommonViewDef {
     /** Assigned to `uid` in a HiGlass view config, used for API and caching. */
@@ -201,6 +201,16 @@ export interface CommonTrackDef extends CommonViewDef {
     prerelease?: {
         // ...
     };
+}
+
+export interface ChromospaceTrack
+    // The Gosling compiler will automatically fill in the default properties for any track.
+    // This list is non-exhaustive and more due diligence is needed to make sure all properties are filled in.
+    extends Pick<
+        CommonTrackDef,
+        'width' | 'height' | 'id' | 'title' | '_invalidTrack' | 'orientation' | 'static' | 'assembly'
+    > {
+    type: '3D';
 }
 
 /**
