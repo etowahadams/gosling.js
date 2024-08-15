@@ -38,6 +38,9 @@ dependencies:
   buffer:
     specifier: ^6.0.3
     version: 6.0.3
+  chromospace:
+    specifier: ^0.0.10
+    version: 0.0.10
   css-element-queries:
     specifier: ^1.2.3
     version: 1.2.3
@@ -2451,6 +2454,20 @@ packages:
       get-func-name: 2.0.2
     dev: true
 
+  /chroma-js@2.6.0:
+    resolution: {integrity: sha512-BLHvCB9s8Z1EV4ethr6xnkl/P2YRFOGqfgvuMG/MyCbZPrTA+NeiByY6XvgF0zP4/2deU2CXnWyMa3zu1LqQ3A==}
+    dev: false
+
+  /chromospace@0.0.10:
+    resolution: {integrity: sha512-k6c5uFiwQhKz0f5g1hcccfs0wfzGNu8m5XycRRJaXXa8OqazxQu0O6z8KUb8b7ufVir8LvQ1tQhTOuQWrXlDcw==}
+    dependencies:
+      chroma-js: 2.6.0
+      gl-matrix: 3.4.3
+      n8ao: 1.8.4(postprocessing@6.36.0)(three@0.164.1)
+      postprocessing: 6.36.0(three@0.164.1)
+      three: 0.164.1
+    dev: false
+
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
@@ -3772,6 +3789,10 @@ packages:
       ini: 1.3.8
     dev: true
 
+  /gl-matrix@3.4.3:
+    resolution: {integrity: sha512-wcCp8vu8FT22BnvKVPjXa/ICBWRq/zjFfdofZy1WSpQZpphblv12/bOQLBC1rMM7SGOFS9ltVmKOHil5+Ml7gA==}
+    dev: false
+
   /glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -5001,6 +5022,16 @@ packages:
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
+  /n8ao@1.8.4(postprocessing@6.36.0)(three@0.164.1):
+    resolution: {integrity: sha512-xaPub6na6jGAW7rbANcMcnKNhNa3Fmsbe1WY5mzI9bDuBTQmP6X2G1Xq1t2Si8dxJjqYPvNZX3xhXfkNw8jQBQ==}
+    peerDependencies:
+      postprocessing: '>=6.30.0'
+      three: '>=0.137'
+    dependencies:
+      postprocessing: 6.36.0(three@0.164.1)
+      three: 0.164.1
+    dev: false
+
   /nanoevents@7.0.1:
     resolution: {integrity: sha512-o6lpKiCxLeijK4hgsqfR6CNToPyRU3keKyyI6uwuHRvpRTbZ0wXw51WRgyldVugZqoJfkGFrjrIenYH3bfEO3Q==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
@@ -5485,6 +5516,14 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /postprocessing@6.36.0(three@0.164.1):
+    resolution: {integrity: sha512-7V2t8Yi+Edh0FybErMdBV3CCJ/tTeNeLh6z+i0VczwZ6HGV3XyRfC8v4Ps9a6tjawcTvatLptQzX8QnDlU8BXw==}
+    peerDependencies:
+      three: '>= 0.157.0 < 0.168.0'
+    dependencies:
+      three: 0.164.1
+    dev: false
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -6359,6 +6398,10 @@ packages:
       tiny-worker: 2.3.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /three@0.164.1:
+    resolution: {integrity: sha512-iC/hUBbl1vzFny7f5GtqzVXYjMJKaTPxiCxXfrvVdBi1Sf+jhd1CAkitiFwC7mIBFCo3MrDLJG97yisoaWig0w==}
     dev: false
 
   /through2@2.0.5:
