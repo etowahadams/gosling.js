@@ -13,6 +13,10 @@ import { HeatmapTrack } from '@gosling-lang/heatmap';
 import type { PixiManager } from '@pixi-manager';
 import { DummyTrack } from '@gosling-lang/dummy-track';
 
+// Chromospace and 3D data
+import * as chs from 'chromospace';
+import { data3D } from '../3d-data';
+
 /**
  * Takes a list of track definitions and linkedEncodings and renders them
  * @param trackOptions
@@ -102,6 +106,25 @@ export function renderTrackDefs(trackDefs: TrackDefs[], linkedEncodings: LinkedE
         }
         if (type === TrackType.Dummy) {
             new DummyTrack(options, pixiManager.makeContainer(boundingBox).overlayDiv);
+        }
+        // Add a new track type for Chromospace
+        if (type === TrackType.Chromospace) {
+            // Chromospace code copied from Observable
+            const viewConfig = {
+                binSizeScale: 0.01,
+                coloring: 'constant' as const
+            };
+            let chromatinScene = chs.initScene();
+            const testChunk = chs.parseTsv(data3D, { center: true, normalize: true });
+            chromatinScene = chs.addChunkToScene(chromatinScene, testChunk, viewConfig);
+            const [_, canvas] = chs.display(chromatinScene, { alwaysRedraw: false });
+            // End of copied code
+
+            // Even though Chromospace doesn't use PixiJS, we can use the PixiManager to create a div container that the canvas can be placed into.
+            // In the final version, we would probably want Chromospace to use an existing canvas element (to limit the creation of new elements).
+            // But for now this gets the job done.
+            const container = pixiManager.makeContainer(boundingBox).overlayDiv;
+            container.appendChild(canvas);
         }
     });
 }
